@@ -7,6 +7,10 @@
 
 ### Adding Spotify Main Window
 ![](Public/images/img2.png)
+
+### Adding Content To Main Window
+![](Public/images/img3.png)
+
 --- 
 ## Note 
 ### To run this project you need  : 

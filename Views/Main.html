@@ -11,7 +11,7 @@
    <link rel="stylesheet" href="../Public/css/Main.css">
   </head>
   <body>
-    <div class="container-fluid">
+    <div class="container-fluid" style="overflow:hidden ;" >
       <div class="row" style="height: 87%;">
         <div class="lef-side col-side  ">
           <div
@@ -46,98 +46,136 @@
             <hr>
           </div>
         </div>
-        <div class="middle col-middle"></div>
+        <div class="middle col-middle" id="mainContent"  style="overflow-y: auto;height: 100%;" >
+          <div class="row profile pt-5">
+              <div class="col-2">
+                    <img src="../Public/images/me.jpg"  class="profile-img" alt="">
+              </div>
+              <div class="col-6 offset-1 pt-5 text-smoke">
+                  <p>PLAYLIST</p>
+                  <h3>DISCOVER WEEKLY</h3>
+                  <h4>Load Some Tracks And Start Listing .. </h4>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-12 border-bottom pt-2">
+              <button class="btn btn-green" onclick="LoadTracks()">
+                <img src="../Public/images/add.png" class="browse-btn" id="LoadTracks"  alt="" srcset="">  <span class="text-smoke">Load</span>
+              </button>
+            </div>
+            <div class="col-12 pt-3 ">
+              <table class="table tracks-table" style="z-index: 0 !important;">
+                <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Title</th>
+                      <th>Alubm</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  
+                </tbody>
+            </table>
+            </div>
+          </div>
+        </div>
         <div class="right-side col-side ">
             <div class="container-fluid p-0">
                 <div class="app">
                     <span class="app-control">
-                        <img src="../Public/images/min.png" alt=""  class="app-control-img" srcset="">
+                        <img src="../Public/images/min.png" alt=""  class="app-control-img" onclick="Minimize()"  srcset="">
                     </span>
                     <span class="app-control">
-                        <img src="../Public/images/max.png" alt=""  class="app-control-img" srcset="">
+                        <img src="../Public/images/max.png" alt=""  class="app-control-img" onclick="Maximize()" srcset="">
                     </span>
                     <span class="app-control">
-                        <img src="../Public/images/close.png" alt=""  class="app-control-img" srcset="">
+                        <img src="../Public/images/close.png" alt=""  class="app-control-img" onclick="Close()" srcset="">
                     </span>
                 </div>
             </div>
 
         </div>
         </div>
-       <div class="row bg-grad" style="height: 13%;">
+       <div class="row bg-grad" style=" z-index: 2  !important; ;height: 13%;">
          
-               <div class="col-3">
-                   <div class="row">
-                       <div class="col-2 mt-8" >
-                           <img src="../Public/images/iris.png" class="track-img" id="track-img" alt="" srcset="">
-                       </div>
-                       <div class="col-6 mt-8">
-                             <a href="javascript:void()" style="font-size: 16px;" class="col-12 col-d text-smoke d-block " id="track-title" > Track Name  </a>
-                             <a href="javascript:void()" style="font-size: 14px;" class="col-12 text-smoke col-d "  id="track-artist" >Track Artist</a>
-                       </div>
-                       <div class="col-4 mt-8" style="margin-top: 20px;">
-                               <div class="track-controls">
-                                <a href="javascript:void()" class="col-6 col-d" >
-                                    <img src="../Public/images/to-like.png" class="track-control-img" alt="" srcset="">
-                                </a>
-                                <a href="javascript:void()" class="col-5 offset-1 col-d" >
-                                    <img src="../Public/images/remove.png" class="track-control-img" alt="" srcset="">
-                                </a>
-                               </div>
-                       </div>
-                   </div>
-               </div>
-               <div class="col player-box">
-                    <audio  hidden  id="player" src="../Public/audio/kahf.mp3"  controls>
-                        Your browser does not support the
-                    <code>audio</code> element.
-                    </audio>
-                    <div class="row" style="height: 70%;">
-                            <div class="col-8   player-controls" style="margin-left: 30%;">
-                                   
-                                            <button class="btn player-btn">
-                                                <img src="../Public/images/shuffle.png" class="player-control-img" alt="" srcset="">
-                                            </button>
-                                            <button class="btn player-btn">
-                                                <img src="../Public/images/previous.png" class="player-control-img" alt="" srcset="">
-                                            </button>
-                                            <button class="btn player-btn" onclick="play()"  >
-                                                <img src="../Public/images/play.png" style="width: 30px;height: 30px;" class="player-control-img" alt="" srcset="">
-                                            </button>
-                                            <button class="btn player-btn">
-                                                <img src="../Public/images/next.png" class="player-control-img" alt="" srcset="">
-                                            </button>
-                                            <button class="btn player-btn">
-                                                <img src="../Public/images/repeat.png" class="player-control-img" alt="" srcset="">
-                                            </button>
-                                         
-                                
-                            </div>
-                    </div>
-                    <div class="row" style="width: 97%;">
-                        <div class="col-1">
-                            <span class="color-d" id="played">00:00</span>
-
+              <div class="col-12 player-container">
+                <div class="row">
+                  <div class="col-3">
+                    <div class="row">
+                        <div class="col-2 mt-8" >
+                            <img src="../Public/images/iris.png" class="track-img" id="track-img" alt="" srcset="">
                         </div>
-                        <div class="col-10">
-                            <input type="range" style="margin-top: 5px;" onchange="Seed()" min="0" value="0" max="100" class="styled-slider slider-progress" id="playedRange">
+                        <div class="col-6 mt-8">
+                              <a href="javascript:void()" style="font-size: 16px;" class="col-12 col-d text-smoke d-block " id="track-title" > Track Name  </a>
+                              <a href="javascript:void()" style="font-size: 14px;" class="col-12 text-smoke col-d "  id="track-artist" >Track Artist</a>
                         </div>
-                        <div class="col-1">
-                            <span class="color-d"  id="total">00:00</span>
-
+                        <div class="col-4 mt-8" style="margin-top: 20px;">
+                                <div class="track-controls">
+                                 <a href="javascript:void()" class="col-6 col-d" >
+                                     <img src="../Public/images/to-like.png" class="track-control-img" alt="" srcset="">
+                                 </a>
+                                 <a href="javascript:void()" class="col-5 offset-1 col-d" >
+                                     <img src="../Public/images/remove.png" class="track-control-img" alt="" srcset="">
+                                 </a>
+                                </div>
                         </div>
                     </div>
-               </div>
-               <div class="col-side">
-                   
-               </div>
+                </div>
+                <div class="col player-box">
+                      
+                     <audio  hidden  id="player" src="../Public/audio/kahf.mp3"  controls>
+                         Your browser does not support the
+                     <code>audio</code> element.
+                     </audio>
+                     <div class="row" style="height: 70%;">
+                             <div class="col-8   player-controls" style="margin-left: 30%;">
+                                    
+                                             <button class="btn player-btn">
+                                                 <img src="../Public/images/shuffle.png" class="player-control-img" alt="" srcset="">
+                                             </button>
+                                             <button class="btn player-btn">
+                                                 <img src="../Public/images/previous.png" class="player-control-img" alt="" srcset="">
+                                             </button>
+                                             <button class="btn player-btn" onclick="play()"  >
+                                                 <img src="../Public/images/play.png" style="width: 30px;height: 30px;" class="player-control-img" alt="" srcset="">
+                                             </button>
+                                             <button class="btn player-btn">
+                                                 <img src="../Public/images/next.png" class="player-control-img" alt="" srcset="">
+                                             </button>
+                                             <button class="btn player-btn">
+                                                 <img src="../Public/images/repeat.png" class="player-control-img" alt="" srcset="">
+                                             </button>
+                                          
+                                 
+                             </div>
+                     </div>
+                     <div class="row" style="width: 97%;">
+                         <div class="col-1">
+                             <span class="color-d" id="played">00:00</span>
+ 
+                         </div>
+                         <div class="col-10">
+                             <input type="range" style="margin-top: 5px;" onchange="Seed()" min="0" value="0" max="100" class="styled-slider slider-progress" id="playedRange">
+                         </div>
+                         <div class="col-1">
+                             <span class="color-d"  id="total">00:00</span>
+ 
+                         </div>
+                     </div>
+                </div>
+                <div class="col-side">
+                    
+                </div>
+                </div>
+              </div>
          
        </div>
       </div>
        <script>
            var exports  = {};
        </script>
-      <script src="../Scripts/Main.script.js"></script>
+      <script defer src="../Scripts/Main.script.js"></script>
+
     </div>
   </body>
 </html>

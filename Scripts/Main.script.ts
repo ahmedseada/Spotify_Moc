@@ -1,10 +1,31 @@
+import { ipcRenderer } from "electron";
+
 let player: any = document.getElementById("player");
 let isGreater = GetDurationHours(player.duration);
 let played :any = document.getElementById('played');
 let left :any = document.getElementById('left');
 let total :any = document.getElementById('total');
 let playedRange :any = document.getElementById('playedRange');
+let tracksBody :any = document.querySelector('.tracks-table tbody');
 
+
+
+function Minimize(){
+  console.log("Minimizing");
+  
+  ipcRenderer.send('min');
+}
+function Maximize(){
+  console.log("Maximizing");
+  
+  ipcRenderer.send('max');
+}
+function Close(){
+  console.log("Closing");
+  
+  ipcRenderer.send('close');
+}
+ 
 function Seed(){
     
     player.currentTime =player.duration * (playedRange.value/100)
@@ -12,7 +33,25 @@ function Seed(){
 
     
 }
- 
+function LoadTracks(){
+  ipcRenderer.removeAllListeners('paths');
+  ipcRenderer.removeAllListeners('load-tracks');
+    ipcRenderer.send('load-tracks');
+    ipcRenderer.on('paths',(evt,paths : Array<string>)=>{
+      paths.forEach(path => { 
+        let tr= `
+        <tr>
+             <th>#</th>
+             <th>Title</th>
+             <th>Alubm</th>
+        </tr>
+        `;
+  
+        tracksBody.insertAdjacentHTML('beforeend',tr);
+      });
+
+    })
+}
 player.ontimeupdate = (evt: any) => {
     let totalDu = getTimeString(player.duration);
     let currentTime = getTimeString(player.currentTime);
@@ -48,3 +87,5 @@ function GetDurationHours(seconds: number): boolean {
   let hours = Math.floor(seconds / (60 * 60));
   return hours > 0;
 }
+
+ 

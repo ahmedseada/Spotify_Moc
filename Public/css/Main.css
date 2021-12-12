@@ -56,6 +56,7 @@ hr{
   height: 20px;
   object-fit: cover ;
   margin-left: 10px;
+  cursor: pointer;
 }
 .player-control-img{
     width: 15px;
@@ -63,8 +64,10 @@ hr{
     object-fit: cover ;
     margin-left: 22px;
 }
-.bg-grad{
-  background: linear-gradient(49deg, #444, #222 100%);
+ 
+.player-container  {
+  background: linear-gradient(50deg, #444, #222 100%);
+
 }
 img.track-img {
 height: 50px;
@@ -85,7 +88,20 @@ object-fit: cover;
 .bg-teal{
   background: teal !important;
 }
-img.track-control-img{
+.btn-green{
+  color: #a3a3a3;
+  border: 1px solid #a3a3a3;
+  padding: 5px !important;
+
+}
+.btn-green span{
+  padding-left: 4px;
+  
+}
+.text-green{
+  color: lightgreen;
+}
+img.track-control-img,.browse-btn{
 width: 25px;
 height: 25px;
 object-fit: cover;
@@ -102,8 +118,37 @@ margin-top: 10px;
 #playedRange:hover{
     opacity: 1;
 }
+#mainContent::-webkit-scrollbar {
+    width: 8px;
+    /* appearance: none; */
+    background: #a3a3a3;
+    border: none;
+    outline: none ;
+}
+#mainContent::-webkit-scrollbar-thumb {
+  width: 6px;
+    height: 6px;
+    border-radius: 3px;
+  background: linear-gradient(50deg, lightgreen, #222 100%);
+  
+} 
+#mainContent::-webkit-scrollbar-track{
+  /* appearance: none; */
+  
+  background: linear-gradient(50deg, #444, #222 100%);
+
+}
+
+th{
+  color: #d3d3d3;
+}
  
 
 .color-d{
     color: #d3d3d3 !important;
+}
+.profile-img{
+  width: 200px;
+  height: 200px;
+  border-radius: 15px;
 }
