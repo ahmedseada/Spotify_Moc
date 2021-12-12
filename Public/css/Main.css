@@ -1,0 +1,109 @@
+
+html,
+body , .container-fluid  {
+  background: black;
+  height: 100%;
+}
+.btn-img {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+}
+.btn-text {
+  padding-left: 13px;
+  color: white;
+  margin: 3px 0 0 0;
+  position: absolute;
+}
+.btn{
+    display: block;
+    padding: 0 !important;
+    margin: 15px 0;
+}
+
+hr{
+  height: 2.5px  !important;
+  background: #fff;
+}
+.middle{
+  background: linear-gradient(177deg, #333, transparent) !important;
+}
+.col-side{
+    width: 18% !important;
+    /* background: teal; */
+}
+.col-side-2{
+  width: 28% !important;
+    /* background: teal; */
+}
+.col-side-3{
+  width: 38% !important;
+     
+}
+.col-middle{
+  width: 63.9% !important;
+  background: rgb(199, 60, 60);
+
+}
+.lef-side , .right-side{
+  background: #000;
+}
+.app{
+  text-align: end;
+}
+.app-control-img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover ;
+  margin-left: 10px;
+}
+.player-control-img{
+    width: 15px;
+    height: 15px;
+    object-fit: cover ;
+    margin-left: 22px;
+}
+.bg-grad{
+  background: linear-gradient(49deg, #444, #222 100%);
+}
+img.track-img {
+height: 50px;
+width: 50px;
+object-fit: cover;
+}
+.col-d{
+  text-decoration: none;
+ 
+}
+.col-d:hover{
+  text-decoration:underline;
+ 
+}
+.text-smoke{
+  color: #a3a3a3 !important;
+}
+.bg-teal{
+  background: teal !important;
+}
+img.track-control-img{
+width: 25px;
+height: 25px;
+object-fit: cover;
+}
+.mt-8{
+margin-top: 10px;
+}
+.player-btn{
+    display: inline-block;
+}
+#playedRange{
+    width: 100%;
+}
+#playedRange:hover{
+    opacity: 1;
+}
+ 
+
+.color-d{
+    color: #d3d3d3 !important;
+}
