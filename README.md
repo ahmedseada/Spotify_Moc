@@ -1,7 +1,12 @@
 # Build Spotify Clone Using Electron With  Typescript
 
 **version 1.0.0**
+---
+### Building Structure
+![](Public/images/img1.jpeg)
 
+### Adding Spotify Main Window
+![](Public/images/img2.png)
 --- 
 ## Note 
 ### To run this project you need  : 
