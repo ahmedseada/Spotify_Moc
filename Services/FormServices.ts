@@ -31,5 +31,8 @@ export class FormServices implements IFormServices{
             });
             this.window.loadFile(path.join(this.appPath , "views",viewName +".html"));
     }
+    error(message:string){
+        this.send("error-msg",message);
+    }
   
 }

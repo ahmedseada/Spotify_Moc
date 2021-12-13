@@ -37,7 +37,7 @@
                 <button class="btn">
                     <img src="../Public/images/add.png" class="btn-img" alt="" />
                     <span class="btn-text"> Create Playlist </span>
-                  </button>
+                </button>
                 <button class="btn">
                     <img src="../Public/images/heart.png" class="btn-img" alt="" />
                     <span class="btn-text"> Liked Songs  </span>
@@ -49,33 +49,49 @@
         <div class="middle col-middle" id="mainContent"  style="overflow-y: auto;height: 100%;" >
           <div class="row profile pt-5">
               <div class="col-2">
-                    <img src="../Public/images/me.jpg"  class="profile-img" alt="">
+                    <img src="../Public/images/me.jpg"  class="profile-img" id="profile-img" alt="">
               </div>
               <div class="col-6 offset-1 pt-5 text-smoke">
-                  <p>PLAYLIST</p>
-                  <h3>DISCOVER WEEKLY</h3>
-                  <h4>Load Some Tracks And Start Listing .. </h4>
+                  <p id="playing-type">Track</p>
+                  <h3 id="profile-artist-name">DISCOVER WEEKLY</h3>
+                  <h4 id="profile-track-name">Load Some Tracks And Start Listing .. </h4>
               </div>
           </div>
           <div class="row">
             <div class="col-12 border-bottom pt-2">
-              <button class="btn btn-green" onclick="LoadTracks()">
-                <img src="../Public/images/add.png" class="browse-btn" id="LoadTracks"  alt="" srcset="">  <span class="text-smoke">Load</span>
-              </button>
+              <div class="row">
+                <div class="col-3">
+                  <input type="text" class="term-contorl" id="search-term">
+                </div>
+                <div class="col-3">
+                  <select name="" id="search-type" class="select-control pl-0">
+                    <option value="track" selected>Track</option>
+                    <option value="artist">Artist</option>
+                  </select>
+                </div>
+                <div class="col-2">
+                  <button class="btn btn-green" onclick="LoadTracks()">
+                    <img src="../Public/images/add.png" class="browse-btn" id="LoadTracks"  alt="" srcset="">  <span class="text-smoke">Search</span>
+                  </button>
+                </div>
+              </div>
             </div>
             <div class="col-12 pt-3 ">
-              <table class="table tracks-table" style="z-index: 0 !important;">
+              <table class="table tracks-table hidden" style="z-index: 0 !important;">
                 <thead>
                     <tr>
                       <th>#</th>
                       <th>Title</th>
+                      <th>Artist</th>
                       <th>Alubm</th>
                     </tr>
                 </thead>
                 <tbody>
-                  
                 </tbody>
             </table>
+            <div class="card-container" id="card-container">
+              
+            </div>
             </div>
           </div>
         </div>
@@ -106,8 +122,8 @@
                             <img src="../Public/images/iris.png" class="track-img" id="track-img" alt="" srcset="">
                         </div>
                         <div class="col-6 mt-8">
-                              <a href="javascript:void()" style="font-size: 16px;" class="col-12 col-d text-smoke d-block " id="track-title" > Track Name  </a>
-                              <a href="javascript:void()" style="font-size: 14px;" class="col-12 text-smoke col-d "  id="track-artist" >Track Artist</a>
+                              <a href="javascript:void()" style="font-size: 16px;" class="col-12 col-d text-smoke d-block " id="track-title" >   </a>
+                              <a href="javascript:void()" style="font-size: 14px;" class="col-12 text-smoke col-d "  id="track-artist" ></a>
                         </div>
                         <div class="col-4 mt-8" style="margin-top: 20px;">
                                 <div class="track-controls">
@@ -123,9 +139,10 @@
                 </div>
                 <div class="col player-box">
                       
+                
                      <audio  hidden  id="player" src="../Public/audio/kahf.mp3"  controls>
                          Your browser does not support the
-                     <code>audio</code> element.
+                       <code>audio</code> element.
                      </audio>
                      <div class="row" style="height: 70%;">
                              <div class="col-8   player-controls" style="margin-left: 30%;">
@@ -137,7 +154,7 @@
                                                  <img src="../Public/images/previous.png" class="player-control-img" alt="" srcset="">
                                              </button>
                                              <button class="btn player-btn" onclick="play()"  >
-                                                 <img src="../Public/images/play.png" style="width: 30px;height: 30px;" class="player-control-img" alt="" srcset="">
+                                                 <img src="../Public/images/play.png" id="playPauseImg" style="width: 30px;height: 30px;" class="player-control-img" alt="" srcset="">
                                              </button>
                                              <button class="btn player-btn">
                                                  <img src="../Public/images/next.png" class="player-control-img" alt="" srcset="">
